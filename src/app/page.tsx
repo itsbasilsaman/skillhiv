@@ -1,8 +1,5 @@
 import Head from 'next/head';
-import Link from 'next/link';
-import Image from 'next/image';
 import React from 'react';
-import NewsletterForm from "./NewsletterForm";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import OneStepAwaySection from "./components/OneStepAwaySection";
@@ -19,12 +16,6 @@ import CTASection from "./components/CTASection";
 import FooterNewsletterSection from "./components/FooterNewsletterSection";
 
 const Home: React.FC = () => {
-  // Dummy handler to prevent form submission errors
-  const handleNewsletterSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    // You can add your newsletter logic here
-  };
-
   return (
     <>
       <Head>
@@ -41,7 +32,7 @@ const Home: React.FC = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="shortcut icon" href="/63bc1e3983475d58fd4fd957/63bee59b2af6428ddd4f1fe5_32%20x32.png" type="image/x-icon" />
         <link rel="apple-touch-icon" href="/63bc1e3983475d58fd4fd957/63bee59d073b2cfe60ac0b82_256%20x256.png" />
-        <link href="/63bc1e3983475d58fd4fd957/css/phoenix-course.webflow.a18353b96.css" rel="stylesheet" type="text/css" />
+        {/* <link href="/63bc1e3983475d58fd4fd957/css/phoenix-course.webflow.a18353b96.css" rel="stylesheet" type="text/css" /> */}
       </Head>
       <Navbar />
       <HeroSection />

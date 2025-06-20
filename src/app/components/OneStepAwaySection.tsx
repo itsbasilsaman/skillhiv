@@ -8,7 +8,7 @@ const OneStepAwaySection: React.FC = () => (
       <div className="w-layout-grid steps-grid">
         <div id="w-node-c92ba1be-d3be-0d69-1295-2230ba8e196b-c24fd956" data-w-id="c92ba1be-d3be-0d69-1295-2230ba8e196b" className="title-wrap-step-away">
           <div className="space-50"></div>
-          <h2>It's only a step away.</h2>
+          <h2>It&apos;s only a step away.</h2>
           <div className="subtext">Join to change your life</div>
           <div className="space-24"></div>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis convallis nibh a lectus viverra ullamcorper. Nunc id congue tortor. Mauris non sodales sapien, eu iaculis ante.</p>
