@@ -23,7 +23,7 @@ const ColorImageSection2: React.FC = () => (
         <div id="w-node-a1ce15bf-4f97-9abf-c40d-7a58ec6f1890-c24fd956" data-w-id="a1ce15bf-4f97-9abf-c40d-7a58ec6f1890" className="title-wrap-home-image-section">
           <h2>Imagine your life financially independent and full of freedom.</h2>
           <div className="space-16"></div>
-          <p className="text-medium">You wake up in the morning without the stress of worrying about how you will pay your bills, or whether you have enough money to cover your expenses. Instead, you have the peace of mind that comes with knowing that your financial future is secure. You have the freedom to pursue your passions and interests, whether that's traveling the world, starting your own business, or simply enjoying more time with your loved ones.</p>
+          <p className="text-medium">You wake up in the morning without the stress of worrying about how you will pay your bills, or whether you have enough money to cover your expenses. Instead, you have the peace of mind that comes with knowing that your financial future is secure. You have the freedom to pursue your passions and interests, whether that&apos;s traveling the world, starting your own business, or simply enjoying more time with your loved ones.</p>
           <div className="space-40"></div>
           <Link href="/blog" className="cta-link">Read success stories</Link>
         </div>

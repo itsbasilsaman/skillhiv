@@ -10,7 +10,7 @@ const CTASection: React.FC = () => (
         <div className="w-layout-grid cta-grid">
           <div id="w-node-_65f4b1bb-63fd-1b6c-4e51-e72e1b9b1838-1b9b1834" className="block">
             <div className="limit-560">
-              <h2>Why don't you start today?</h2>
+              <h2>Why don&apos;t you start today?</h2>
               <div className="space-08"></div>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sit amet sem blandit, suscipit lectus ac, molestie magna.</p>
             </div>
