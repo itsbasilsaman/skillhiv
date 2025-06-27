@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../../public/63bc1e3983475d58fd4fd957/css/phoenix-course.webflow.a18353b96.css";
+import Navbar from "./components/Navbar";
+import FooterNewsletterSection from "./components/FooterNewsletterSection";
+import { SessionProvider } from "next-auth/react";
+import SessionProviderWrapper from "./components/SessionProviderWrapper";
+import QueryProvider from "./components/QueryProvider";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +33,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+            <SessionProviderWrapper>
+        <Navbar/>
+          <QueryProvider>
+          {children}
+          </QueryProvider>
+        <FooterNewsletterSection/>
+        </SessionProviderWrapper>
       </body>
     </html>
   );

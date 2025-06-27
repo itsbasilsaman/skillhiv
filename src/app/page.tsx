@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import React from 'react';
-import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import OneStepAwaySection from "./components/OneStepAwaySection";
 import ColorImageSection1 from "./components/ColorImageSection1";
@@ -13,7 +12,7 @@ import NumbersStatisticsSection from "./components/NumbersStatisticsSection";
 import TeachersSection from "./components/TeachersSection";
 import BrandsPlatformsSection from "./components/BrandsPlatformsSection";
 import CTASection from "./components/CTASection";
-import FooterNewsletterSection from "./components/FooterNewsletterSection";
+ 
 
 const Home: React.FC = () => {
   return (
@@ -34,7 +33,6 @@ const Home: React.FC = () => {
         <link rel="apple-touch-icon" href="/63bc1e3983475d58fd4fd957/63bee59d073b2cfe60ac0b82_256%20x256.png" />
         {/* <link href="/63bc1e3983475d58fd4fd957/css/phoenix-course.webflow.a18353b96.css" rel="stylesheet" type="text/css" /> */}
       </Head>
-      <Navbar />
       <HeroSection />
       <OneStepAwaySection />
       <ColorImageSection1 />
@@ -47,8 +45,7 @@ const Home: React.FC = () => {
       <TeachersSection />
       <BrandsPlatformsSection />
       <CTASection />
-      <FooterNewsletterSection />
-    </>
+       </>
   );
 };
 
