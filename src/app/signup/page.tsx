@@ -41,8 +41,12 @@ export default function SignUpPage() {
       } else {
         router.push('/dashboard');
       }
-    } catch (err: any) {
-      setError(err.message || 'Registration failed. Please try again.');
+    } catch (err: unknown) {
+      if (err && typeof err === 'object' && 'message' in err && typeof (err as any).message === 'string') {
+        setError((err as any).message || 'Registration failed. Please try again.');
+      } else {
+        setError('Registration failed. Please try again.');
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -53,8 +57,12 @@ export default function SignUpPage() {
     setError('');
     try {
       await signIn('google', { callbackUrl: '/' });
-    } catch (err: any) {
-      setError(err.message || 'Google sign up failed. Please try again.');
+    } catch (err: unknown) {
+      if (err && typeof err === 'object' && 'message' in err && typeof (err as any).message === 'string') {
+        setError((err as any).message || 'Google sign up failed. Please try again.');
+      } else {
+        setError('Google sign up failed. Please try again.');
+      }
       setIsSubmitting(false);
     }
   };

@@ -31,8 +31,12 @@ export default function LoginPage() {
       } else {
         router.push('/dashboard');
       }
-    } catch (err: any) {
-      setError(err.message || 'Login failed. Please try again.');
+    } catch (err: unknown) {
+      if (err && typeof err === 'object' && 'message' in err && typeof (err as any).message === 'string') {
+        setError((err as any).message || 'Login failed. Please try again.');
+      } else {
+        setError('Login failed. Please try again.');
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -44,8 +48,12 @@ export default function LoginPage() {
     
     try {
       await signIn("google", { callbackUrl: '/' });
-    } catch (err: any) {
-      setError(err.message || 'Google login failed. Please try again.');
+    } catch (err: unknown) {
+      if (err && typeof err === 'object' && 'message' in err && typeof (err as any).message === 'string') {
+        setError((err as any).message || 'Google login failed. Please try again.');
+      } else {
+        setError('Google login failed. Please try again.');
+      }
       setIsSubmitting(false);
     }
   };
@@ -63,7 +71,7 @@ export default function LoginPage() {
           </Link>
           <div className="hidden md:flex items-center space-x-6">
             <Link href="/sign-up" className="text-[#1C3533] hover:text-[#0F2927] transition-colors">
-              Don't have an account?
+              Don&apos;t have an account?
             </Link>
             <Link 
               href="/sign-up" 
@@ -228,7 +236,7 @@ export default function LoginPage() {
 
                 <div className="mt-6 text-center text-sm">
                   <p className="text-gray-600">
-                    Don't have an account?{' '}
+                    Don&apos;t have an account?{' '}
                     <Link href="/sign-up" className="font-medium text-[#1C3533] hover:text-[#0F2927]">
                       Sign up
                     </Link>
