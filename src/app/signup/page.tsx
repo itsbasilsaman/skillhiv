@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 export default function SignUpPage() {
   const [name, setName] = useState('');
@@ -91,10 +92,12 @@ export default function SignUpPage() {
             <div className="w-full md:w-1/2 mb-12 md:mb-0 md:pr-12">
               <div className="max-w-md mx-auto">
                 <div className="relative aspect-square">
-                  <img
+                  <Image
                     src="https://storyset.com/illustration/online-learning/bro.svg"
                     alt="Learning illustration"
                     className="object-contain w-full h-full"
+                    width={300}
+                    height={300}
                   />
                 </div>
                 <h2 className="text-3xl font-bold text-[#1C3533] mt-8 hidden md:block">
@@ -132,7 +135,7 @@ export default function SignUpPage() {
                         autoComplete="name"
                         required
                         value={name}
-                        onChange={(e) => setName(e.target.value)}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
                         className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#1C3533] focus:ring-2 focus:ring-[#1C3533]/20 transition placeholder-gray-400"
                         placeholder="Your name"
                       />
@@ -150,7 +153,7 @@ export default function SignUpPage() {
                         autoComplete="email"
                         required
                         value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
                         className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#1C3533] focus:ring-2 focus:ring-[#1C3533]/20 transition placeholder-gray-400"
                         placeholder="you@example.com"
                       />
@@ -168,7 +171,7 @@ export default function SignUpPage() {
                         autoComplete="new-password"
                         required
                         value={password}
-                        onChange={(e) => setPassword(e.target.value)}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
                         className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#1C3533] focus:ring-2 focus:ring-[#1C3533]/20 transition placeholder-gray-400"
                         placeholder="••••••••"
                       />

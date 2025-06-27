@@ -1,9 +1,9 @@
-import LoginPage from "../components/LoginPage"
-
-export default () => {
+const LoginPage = () => {
     return (
         <>
           <LoginPage/>
         </>
     )
 }
+
+export default LoginPage;

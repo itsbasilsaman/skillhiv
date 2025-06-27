@@ -1,10 +1,10 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { useState } from 'react';
 import { signIn } from "next-auth/react";
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -83,10 +83,12 @@ export default function LoginPage() {
             <div className="w-full md:w-1/2 mb-12 md:mb-0 md:pr-12">
               <div className="max-w-md mx-auto">
                 <div className="relative aspect-square">
-                  <img
+                  <Image
                     src="https://storyset.com/illustration/online-learning/bro.svg"
                     alt="Learning illustration"
                     className="object-contain w-full h-full"
+                    width={300}
+                    height={300}
                   />
                 </div>
                 <h2 className="text-3xl font-bold text-[#1C3533] mt-8 hidden md:block">
@@ -125,7 +127,7 @@ export default function LoginPage() {
                         autoComplete="email"
                         required
                         value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
                         className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#1C3533] focus:ring-2 focus:ring-[#1C3533]/20 transition placeholder-gray-400"
                         placeholder="you@example.com"
                       />
@@ -144,7 +146,7 @@ export default function LoginPage() {
                         autoComplete="current-password"
                         required
                         value={password}
-                        onChange={(e) => setPassword(e.target.value)}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
                         className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#1C3533] focus:ring-2 focus:ring-[#1C3533]/20 transition placeholder-gray-400"
                         placeholder="••••••••"
                       />
@@ -158,7 +160,7 @@ export default function LoginPage() {
                         name="remember-me"
                         type="checkbox"
                         checked={rememberMe}
-                        onChange={(e) => setRememberMe(e.target.checked)}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setRememberMe(e.target.checked)}
                         className="h-4 w-4 rounded border-gray-300 text-[#1C3533] focus:ring-[#1C3533]"
                       />
                       <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-700">
