@@ -6,6 +6,15 @@ import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
+function isErrorWithMessage(error: unknown): error is { message: string } {
+  return (
+    typeof error === 'object' &&
+    error !== null &&
+    'message' in error &&
+    typeof (error as { message: unknown }).message === 'string'
+  );
+}
+
 export default function SignUpPage() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -42,8 +51,8 @@ export default function SignUpPage() {
         router.push('/dashboard');
       }
     } catch (err: unknown) {
-      if (err && typeof err === 'object' && 'message' in err && typeof (err as any).message === 'string') {
-        setError((err as any).message || 'Registration failed. Please try again.');
+      if (isErrorWithMessage(err)) {
+        setError(err.message || 'Registration failed. Please try again.');
       } else {
         setError('Registration failed. Please try again.');
       }
@@ -58,8 +67,8 @@ export default function SignUpPage() {
     try {
       await signIn('google', { callbackUrl: '/' });
     } catch (err: unknown) {
-      if (err && typeof err === 'object' && 'message' in err && typeof (err as any).message === 'string') {
-        setError((err as any).message || 'Google sign up failed. Please try again.');
+      if (isErrorWithMessage(err)) {
+        setError(err.message || 'Google sign up failed. Please try again.');
       } else {
         setError('Google sign up failed. Please try again.');
       }

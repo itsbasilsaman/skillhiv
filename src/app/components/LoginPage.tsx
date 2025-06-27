@@ -6,6 +6,15 @@ import { signIn } from "next-auth/react";
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
+function isErrorWithMessage(error: unknown): error is { message: string } {
+  return (
+    typeof error === 'object' &&
+    error !== null &&
+    'message' in error &&
+    typeof (error as { message: unknown }).message === 'string'
+  );
+}
+
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -32,8 +41,8 @@ export default function LoginPage() {
         router.push('/dashboard');
       }
     } catch (err: unknown) {
-      if (err && typeof err === 'object' && 'message' in err && typeof (err as any).message === 'string') {
-        setError((err as any).message || 'Login failed. Please try again.');
+      if (isErrorWithMessage(err)) {
+        setError(err.message || 'Login failed. Please try again.');
       } else {
         setError('Login failed. Please try again.');
       }
@@ -49,8 +58,8 @@ export default function LoginPage() {
     try {
       await signIn("google", { callbackUrl: '/' });
     } catch (err: unknown) {
-      if (err && typeof err === 'object' && 'message' in err && typeof (err as any).message === 'string') {
-        setError((err as any).message || 'Google login failed. Please try again.');
+      if (isErrorWithMessage(err)) {
+        setError(err.message || 'Google login failed. Please try again.');
       } else {
         setError('Google login failed. Please try again.');
       }
